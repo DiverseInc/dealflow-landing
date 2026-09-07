@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealFlow — Real Estate & Mortgage Operations Platform</title>
+  <meta name="description" content="Run your real estate business. All in one place. Workflows, CRM, pipeline management, AI prompts, market analytics, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    /* Nav */
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; max-width: 1200px; margin: 0 auto; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; color: #0f172a; text-decoration: none; }
+    .logo-badge { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #3b82f6, #4f46e5); color: #fff; font-size: 11px; font-weight: 800; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: #64748b; transition: color .2s; }
+    .nav-links a:hover { color: #0f172a; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all .2s; cursor: pointer; border: none; }
+    .btn-primary { background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff; box-shadow: 0 4px 14px rgba(59,130,246,.3); }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(59,130,246,.4); }
+    .btn-outline { background: transparent; color: #1e293b; border: 1.5px solid #e2e8f0; }
+    .btn-outline:hover { border-color: #3b82f6; color: #3b82f6; }
+    .btn-white { background: #fff; color: #3b82f6; box-shadow: 0 4px 14px rgba(0,0,0,.08); }
+    .btn-white:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+    .btn-lg { padding: 16px 32px; font-size: 16px; border-radius: 12px; }
+    /* Hero */
+    .hero { padding: 80px 24px 60px; text-align: center; background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%); }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: #e0e7ff; color: #4338ca; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 800; line-height: 1.1; letter-spacing: -.03em; margin-bottom: 20px; }
+    .hero h1 span { background: linear-gradient(135deg, #3b82f6, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 18px; color: #64748b; max-width: 600px; margin: 0 auto 36px; }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    /* Showcase */
+    .showcase { padding: 80px 24px; }
+    .showcase-img { width: 100%; max-width: 1100px; margin: 0 auto; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.12); border: 1px solid #e2e8f0; overflow: hidden; }
+    .showcase-img img { width: 100%; display: block; }
+    .showcase-placeholder { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, #1e293b, #334155); display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 18px; }
+    /* Features */
+    .features { padding: 80px 24px; background: #fff; }
+    .section-label { text-align: center; font-size: 13px; font-weight: 600; color: #3b82f6; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+    .section-title { text-align: center; font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -.02em; margin-bottom: 16px; }
+    .section-sub { text-align: center; color: #64748b; font-size: 16px; max-width: 560px; margin: 0 auto 48px; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .feature-card { padding: 28px; border-radius: 14px; border: 1px solid #e2e8f0; background: #fff; transition: all .2s; }
+    .feature-card:hover { border-color: #bfdbfe; box-shadow: 0 8px 24px rgba(59,130,246,.08); transform: translateY(-2px); }
+    .feature-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px; }
+    .feature-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: #64748b; }
+    /* Pricing */
+    .pricing { padding: 80px 24px; background: #f8fafc; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .pricing-card { padding: 36px; border-radius: 16px; border: 1px solid #e2e8f0; background: #fff; text-align: center; transition: all .2s; position: relative; }
+    .pricing-card.featured { border-color: #3b82f6; box-shadow: 0 8px 32px rgba(59,130,246,.12); }
+    .pricing-card.featured::before { content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 4px 16px; border-radius: 999px; background: linear-gradient(135deg, #3b82f6, #4f46e5); color: #fff; font-size: 12px; font-weight: 600; }
+    .pricing-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .pricing-card .price { font-size: 44px; font-weight: 800; color: #0f172a; margin: 16px 0 4px; }
+    .pricing-card .price-sub { font-size: 14px; color: #64748b; margin-bottom: 24px; }
+    .pricing-card ul { list-style: none; text-align: left; margin-bottom: 28px; }
+    .pricing-card li { padding: 8px 0; font-size: 14px; color: #475569; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #f1f5f9; }
+    .pricing-card li:last-child { border: none; }
+    .pricing-card li::before { content: '✓'; color: #10b981; font-weight: 700; }
+    .pricing-card .btn { width: 100%; justify-content: center; }
+    /* FAQ */
+    .faq { padding: 80px 24px; background: #fff; }
+    .faq-list { max-width: 700px; margin: 0 auto; }
+    .faq-item { padding: 20px 0; border-bottom: 1px solid #e2e8f0; }
+    .faq-item:last-child { border: none; }
+    .faq-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; cursor: pointer; }
+    .faq-item p { font-size: 14px; color: #64748b; }
+    /* CTA */
+    .cta { padding: 80px 24px; text-align: center; background: linear-gradient(135deg, #1e293b, #0f172a); color: #fff; }
+    .cta h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; margin-bottom: 16px; }
+    .cta p { font-size: 16px; color: #94a3b8; max-width: 500px; margin: 0 auto 32px; }
+    /* Footer */
+    footer { padding: 40px 24px; text-align: center; font-size: 13px; color: #94a3b8; border-top: 1px solid #e2e8f0; }
+    footer a { color: #3b82f6; text-decoration: none; }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero { padding: 60px 24px 40px; }
+      .features, .pricing, .faq, .cta { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav>
+    <a href="/" class="logo"><span class="logo-badge">DF</span> DealFlow</a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://dealflow-landing-three.vercel.app" target="_blank" class="btn btn-outline">Live Demo</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">✦ Now available for Real Estate &amp; Mortgage</div>
+    <h1>Run your real estate business.<br /><span>All in one place.</span></h1>
+    <p>Workflows, CRM, pipeline management, AI prompts, market analytics, goal tracking, commission calculator, and more — for both agents and mortgage brokers.</p>
+    <div class="hero-actions">
+      <a href="https://dealflow-landing-three.vercel.app" target="_blank" class="btn btn-primary btn-lg">Live Demo →</a>
+      <a href="#pricing" class="btn btn-outline btn-lg">See Pricing</a>
+    </div>
+  </section>
+
+  <!-- Showcase -->
+  <section class="showcase">
+    <div class="showcase-img">
+      <img src="https://diverseinc.net/dealflow/dashboard.png" alt="DealFlow Dashboard showing overview metrics, Kanban pipeline, AI insights, and calculator" style="width:100%;display:block;" />
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <p class="section-label">Everything you need</p>
+    <h2 class="section-title">A complete operations platform</h2>
+    <p class="section-sub">36 pre-built AI prompts, 16 workflow blueprints, real-time pipeline management, and full mortgage support.</p>
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#eff6ff;color:#3b82f6;">📋</div>
+          <h3>Workflow Blueprints</h3>
+          <p>16 SOP workflows for listing, buying, mortgage, property management, commercial leasing, and agent onboarding. Grid, list, and timeline views.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#ecfdf5;color:#10b981;">🤖</div>
+          <h3>AI Prompt Library</h3>
+          <p>36 copyable prompts for listing presentations, buyer scripts, marketing copy, mortgage letters, negotiation strategy, and more.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#fef3c7;color:#f59e0b;">📊</div>
+          <h3>Pipeline Kanban</h3>
+          <p>Drag-and-drop deal and loan pipeline management. Track status, health scores, commissions, and days-in-stage across your entire portfolio.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#f3e8ff;color:#8b5cf6;">📈</div>
+          <h3>Market Analytics</h3>
+          <p>Live-style market data dashboard with median price trends, inventory tracking, days on market, and mortgage rate insights.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#fce7f3;color:#ec4899;">🎯</div>
+          <h3>Goal Tracker</h3>
+          <p>Set monthly commission, deal, and compliance targets per agent. Track progress with ring gauges and 12-month trend bars.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#e0f2fe;color:#0ea5e9;">🧮</div>
+          <h3>Built-in Calculators</h3>
+          <p>Mortgage payment calculator with PITI breakdown and commission split calculator with agent/broker shares and referral fees.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#ecfdf5;color:#10b981;">👥</div>
+          <h3>Agent &amp; Loan Officer Scorecards</h3>
+          <p>Performance tracking with compliance rates, time deviation, bottleneck counts, leaderboards, and side-by-side comparison views.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#f1f5f9;color:#64748b;">🔄</div>
+          <h3>Mortgage + RE Modes</h3>
+          <p>Toggle between Real Estate, Mortgage, or combined view. Each mode shows relevant workflows, KPIs, pipelines, and automations.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#fff7ed;color:#f97316;">🔔</div>
+          <h3>Alerting &amp; Audit Log</h3>
+          <p>Notification bell with badge counts. Activity feed tracking every SLA breach, deal move, automation run, and escalation event.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
+    <p class="section-label">Simple pricing</p>
+    <h2 class="section-title">Choose the right license</h2>
+    <p class="section-sub">One-time purchase. Full source code included. No monthly fees.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Standard</h3>
+        <div class="price">$79</div>
+        <div class="price-sub">One-time · Single brokerage</div>
+        <ul>
+          <li>Full source code</li>
+          <li>Real Estate + Mortgage modes</li>
+          <li>All 16 workflow blueprints</li>
+          <li>36 AI prompts</li>
+          <li>All dashboard features</li>
+          <li>1 year of updates</li>
+          <li>Email support</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Buy on Gumroad</a>
+      </div>
+      <div class="pricing-card featured">
+        <h3>Extended</h3>
+        <div class="price">$199</div>
+        <div class="price-sub">One-time · Multi-brokerage / White-label</div>
+        <ul>
+          <li>Everything in Standard</li>
+          <li>Remove DealFlow branding</li>
+          <li>White-label rights</li>
+          <li>Use for unlimited clients</li>
+          <li>Priority email support</li>
+          <li>Lifetime updates</li>
+        </ul>
+        <a href="#" class="btn btn-primary btn-lg">Buy on Gumroad</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Agency Bundle</h3>
+        <div class="price">$499</div>
+        <div class="price-sub">One-time · All current + future apps</div>
+        <ul>
+          <li>DealFlow (Extended License)</li>
+          <li>All future Diverse Inc apps</li>
+          <li>White-label all products</li>
+          <li>Source code for everything</li>
+          <li>Priority support + onboarding</li>
+          <li>Lifetime updates</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Buy on Gumroad</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">Frequently asked questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4>What do I get when I purchase?</h4>
+        <p>You get the complete source code (React + Vite + Tailwind CSS), ready to run locally or deploy. No backend required — it's fully client-side.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do I need a server or database?</h4>
+        <p>No. The app runs entirely in the browser. Data persists in localStorage. To share data across a team, deploy to any static host (Vercel, Netlify, etc.) and everyone uses the same URL.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can I customize the branding?</h4>
+        <p>Yes. All colors, logos, and text are easy to change in the source. The Extended License includes white-label rights so you can remove DealFlow branding entirely.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Does it work for mortgage brokers too?</h4>
+        <p>Yes. Toggle between Real Estate, Mortgage, or All mode. Mortgage mode includes loan pipeline, borrower CRM, loan officer scorecards, mortgage KPIs, and 5 mortgage-specific workflows.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if I need help setting it up?</h4>
+        <p>Email support is included with every license. We'll help you get the app running on your domain and customize it to your brand.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to run your business?</h2>
+    <p>Try the live demo now or purchase and have your own instance running in minutes.</p>
+    <div class="hero-actions">
+      <a href="https://dealflow-landing-three.vercel.app" target="_blank" class="btn btn-white btn-lg">Live Demo →</a>
+      <a href="#pricing" class="btn btn-outline btn-lg" style="border-color:#334155;color:#e2e8f0;">View Pricing</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 <a href="https://diverseinc.net">Diverse Industries Inc</a>. Built by <a href="https://diverseinc.net">Diverse Inc</a>.</p>
+    <p style="margin-top:4px;">DealFlow is a product of Diverse Industries Inc.</p>
+  </footer>
+</body>
+</html>
